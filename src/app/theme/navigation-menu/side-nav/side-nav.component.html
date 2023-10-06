@@ -1,0 +1,13 @@
+<ul class="px-2 py-4 mr-2 select-none" *ngIf="navData.itens.length > 0">
+    <li class="list-item" *ngFor="let nav of navData.itens" >
+        <div class="nav-menu-item {{ activeParentMenu( nav.url ) }}" (click)="navigateToLinkNoChildRoute(nav.url, nav.hasChild)">
+            <p class="item-text {{ activeParentMenu( nav.url ) }}"><fa-icon [icon]="nav.icon" class="me-2 "></fa-icon> {{ nav.title }}</p>
+        </div>
+        <div *ngIf="nav.hasChild">
+            <a class="nav-menu-sub-item {{ activeRoute( navSub.url ) }}" *ngFor="let navSub of nav.subItens" (click)="navigateToLink(navSub.url)">
+                <p class="ml-2">{{ navSub.title }}</p>
+            </a>
+        </div>
+    </li>
+</ul>
+
