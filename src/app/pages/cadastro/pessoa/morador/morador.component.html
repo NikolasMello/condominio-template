@@ -1,3 +1,68 @@
 <div class="shadow-lg bg-white w-full h-full rounded-md py-4 px-6">
-    <h5>Morador</h5>
+    <h5 class="mb-4">Morador</h5>
+    <form [formGroup]="formCadastroMorador" class="grid grid-cols-8 gap-4" (ngSubmit)="salvar()" *ngIf="acao">
+        <div class="col-span-8">
+            <hr class="mb-2"/>
+            <h6 class="mb-0">{{ update ? 'Editar' : 'Cadastrar' }}</h6>
+        </div>
+        <div class="col-span-4">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="nome">
+              Nome
+            </label>
+            <input formControlName="nome" class="primary-form-input" type="text" placeholder="Nome do morador">
+        </div>
+        <div class="col-span-4">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="email">
+              E-mail
+            </label>
+            <input formControlName="email" class="primary-form-input" type="email" placeholder="seuemail@exemplo.com">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="dataNascimento">
+              Data de nascimento
+            </label>
+            <input formControlName="dataNascimento" class="primary-form-input" type="text" placeholder="00/00/0000">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="rg">
+              R.G.
+            </label>
+            <input formControlName="rg" class="primary-form-input" type="text" placeholder="99.999.999-9">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="cpf">
+              C.P.F
+            </label>
+            <input formControlName="cpf" class="primary-form-input" type="text" placeholder="999.999.999-99">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="cep">
+              CEP
+            </label>
+            <input formControlName="cep" class="primary-form-input" type="text" placeholder="99999-999">
+        </div>
+        <div class="col-span-4">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="endereco">
+              Endereço
+            </label>
+            <input formControlName="endereco" class="primary-form-input" type="text" placeholder="99999-999">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="tel">
+              Telefone
+            </label>
+            <input formControlName="tel" class="primary-form-input" type="text" placeholder="99999-999">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="cel">
+              Celular
+            </label>
+            <input formControlName="cel" class="primary-form-input" type="text" placeholder="99999-999">
+        </div>
+        <div class="col-span-8 mt-3 flex">
+            <button class="button me-2" [ngClass]="{'primary-button': update, 'success-button': !update}" type="submit"><fa-icon [icon]="faFloppyDisk" class="me-2 "></fa-icon>Salvar</button>
+            <button class="button secondary-button" type="button"><fa-icon [icon]="faXmark" class="me-2 "></fa-icon>Fechar</button>
+        </div>
+        <hr class="col-span-8 my-2"/>
+    </form>
 </div>

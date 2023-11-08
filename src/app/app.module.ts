@@ -7,6 +7,7 @@ import { NavigationMenuComponent } from './theme/navigation-menu/navigation-menu
 import { CleanLayoutComponent } from './theme/clean-layout/clean-layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SideNavComponent } from './theme/navigation-menu/side-nav/side-nav.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,13 @@ import { SideNavComponent } from './theme/navigation-menu/side-nav/side-nav.comp
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule
   ],
   providers: [],
