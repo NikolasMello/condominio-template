@@ -57,9 +57,32 @@
                 focus-visible:outline-offset-2 focus-visible:outline-cyan-600;
     }
 
+    .tertiary-button{
+        @apply  bg-blue-600 text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2
+                focus-visible:outline-offset-2 focus-visible:outline-blue-600;
+    }
+
     .success-button{
         @apply  bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2
                 focus-visible:outline-offset-2 focus-visible:outline-cyan-600;
+    }
+    .primary-icon-button{
+        @apply text-cyan-600 hover:text-cyan-700 rounded-sm hover:bg-slate-100 px-3 py-2;
+    }
+    .danger-icon-button{
+        @apply text-rose-600 hover:text-rose-700 rounded-sm hover:bg-slate-100 px-3 py-2;
+    }
+    .pagination-button{
+        @apply py-1 px-3 border-r border-cyan-600/40 disabled:hover:bg-white disabled:hover:text-slate-600 hover:bg-cyan-700 hover:text-white;
+    }
+    .pagination-button.active{
+        @apply py-1 px-3 border-r border-cyan-600/40 disabled:hover:bg-white disabled:hover:text-slate-600 bg-cyan-600 hover:bg-cyan-700 text-white hover:text-white;
+    }
+    .pagination-prev{
+        @apply disabled:text-slate-400 py-1 px-3 rounded-l-md border-r border-cyan-600/40 disabled:hover:bg-white hover:bg-cyan-700 hover:text-white;
+    }
+    .pagination-next{
+        @apply disabled:text-slate-400 py-1 px-3 rounded-r-md disabled:hover:bg-white hover:bg-cyan-700 hover:text-white;
     }
     
 
