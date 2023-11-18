@@ -33,4 +33,78 @@ export const dataPersons: iPerson[] = [
     { id: 30, nome: "Thiago Nogueira", cel: "+55 (92) 93234-5678", cep: "56789-012", dataNascimento: "1997-05-05", rg: "67.890.123-4", cpf: "678.901.234-44", tel: "+55 (92) 4455-6677", email: "thiago.nogueira@example.com", endereco: "R. Jorge Tibiriçá, 202-336 - Centro Alto, Ribeirão Pires - SP" }
 ];
 
+export const vehicles = [
+    {
+      id: 1,
+      name: "Sedan",
+      type: "car",
+      owner: "John Doe",
+      plate: "ABC-123",
+    },
+    {
+      id: 2,
+      name: "Pickup Truck",
+      type: "truck",
+      owner: "Alice Smith",
+      plate: "XYZ-456",
+    },
+    {
+      id: 3,
+      name: "Motorcycle",
+      type: "motorcycle",
+      owner: "Bob Johnson",
+      plate: "DEF-789",
+    },
+    {
+      id: 4,
+      name: "SUV",
+      type: "car",
+      owner: "Emily Davis",
+      plate: "GHI-101",
+    },
+    {
+      id: 5,
+      name: "Van",
+      type: "car",
+      owner: "Sarah Wilson",
+      plate: "JKL-202",
+    },
+    {
+      id: 6,
+      name: "Truck",
+      type: "truck",
+      owner: "Michael Brown",
+      plate: "MNO-303",
+    },
+    {
+      id: 7,
+      name: "Sports Car",
+      type: "car",
+      owner: "David Lee",
+      plate: "PQR-404",
+    },
+    {
+      id: 8,
+      name: "Scooter",
+      type: "motorcycle",
+      owner: "Linda Taylor",
+      plate: "STU-505",
+    },
+    {
+      id: 9,
+      name: "RV",
+      type: "vehicle",
+      owner: "Karen Hall",
+      plate: "VWX-606",
+    },
+    {
+      id: 10,
+      name: "Delivery Van",
+      type: "car",
+      owner: "James Clark",
+      plate: "YZA-707",
+    },
+  ];
+  
+
   

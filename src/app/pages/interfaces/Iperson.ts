@@ -3,10 +3,10 @@ export interface iPerson {
       nome: string;
       dataNascimento: string,
       rg: string,
-      cpf: string,
-      cep: string,
+      cpf?: string,
+      cep?: string,
       endereco:string,
-      tel: string,
+      tel?: string,
       cel: string,
-      email: string
+      email?: string
 }

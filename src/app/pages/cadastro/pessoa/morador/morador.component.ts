@@ -49,15 +49,15 @@ export default class MoradorComponent implements OnInit {
   createFormCadastroMorador(person?: iPerson){
     this.formCadastroMorador = this.fb.group({
       idMorador: '',
-      nome: ['' , Validators.required],
-      dataNascimento: ['' , Validators.required],
-      rg: ['' , Validators.required],
-      cpf: ['' , Validators.required],
-      cep: ['' , Validators.required],
-      endereco: ['' , Validators.required],
-      tel: '',
-      cel: ['' , Validators.required],
-      email: ['' , Validators.required]
+      nome: [ person?.nome ? person.nome : '' , Validators.required],
+      dataNascimento: [ person?.dataNascimento ? person.dataNascimento : '' , Validators.required],
+      rg: [person?.rg ? person.rg : '' , Validators.required],
+      cpf: [person?.cpf ? person.cpf : '' , Validators.required],
+      cep: [person?.cep ? person.cep : '' , Validators.required],
+      endereco: [person?.endereco ? person.endereco : '' , Validators.required],
+      tel: person?.tel ? person.tel : '',
+      cel: [person?.cel ? person.cel : '' , Validators.required],
+      email: [person?.email ? person.email : '' , Validators.required]
     });
   }
 
