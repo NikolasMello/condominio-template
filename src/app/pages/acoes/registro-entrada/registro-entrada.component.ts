@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconDefinition, faBan, faXmark, faPenToSquare, faTrash, faEraser, faSearch, faAdd } from '@fortawesome/free-solid-svg-icons';
 import Pagination from 'src/app/util/pagination';
-import { iPerson } from '../../interfaces/Iperson';
-import { dataPersons, dataPersonsEntry } from '../../mock/mock-data';
+import { iPerson } from '../../../interfaces/Iperson';
+import { dataPersons, dataPersonsEntry } from '../../../mock/mock-data';
 
 @Component({
   selector: 'app-registro-entrada',

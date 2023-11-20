@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IconDefinition, faFloppyDisk, faXmark, faPenToSquare, faTrash, faEraser, faSearch, faAdd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { iPerson } from 'src/app/pages/interfaces/Iperson';
-import { dataPersons, fictionalApartments } from 'src/app/pages/mock/mock-data';
+import { iPerson } from 'src/app/interfaces/Iperson';
+import { dataPersons, fictionalApartments } from 'src/app/mock/mock-data';
 import Pagination from 'src/app/util/pagination';
-import { iMoradia } from 'src/app/pages/interfaces/Imoradia';
+import { iMoradia } from 'src/app/interfaces/Imoradia';
 
 @Component({
   selector: 'app-moradia',
