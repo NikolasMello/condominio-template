@@ -8,5 +8,7 @@ export interface iPerson {
       endereco:string,
       tel?: string,
       cel: string,
-      email?: string
+      email?: string,
+      bloco?: string;
+      apartamento?: string;
 }

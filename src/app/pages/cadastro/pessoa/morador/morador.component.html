@@ -8,17 +8,17 @@
         </label>
         <input formControlName="nome" class="primary-form-input" type="text" placeholder="Nome do morador">
       </div>
-      <div class="col-span-4">
-        <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="endereco">
-          Endereço
+      <div class="col-span-2">
+        <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="bloco">
+          Bloco
         </label>
-        <input formControlName="endereco" class="primary-form-input" type="text" placeholder="Endereço do morador">
+        <input formControlName="bloco" class="primary-form-input" type="text" placeholder="Endereço do morador">
       </div>
-      <div class="col-span-4">
-        <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="email">
-          E-mail
+      <div class="col-span-2">
+        <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="apartamento">
+          Apartamento
         </label>
-        <input formControlName="email" class="primary-form-input" type="email" placeholder="email@exemplo.com">
+        <input formControlName="apartamento" class="primary-form-input" type="text" placeholder="Endereço do morador">
       </div>
       <div class="col-span-8 mt-3 flex">
         <button class="tertiary-button button me-2" type="button" (click)="limpar()"><fa-icon [icon]="faEraser" class="me-2 "></fa-icon>Limpar</button>
@@ -68,7 +68,7 @@
             </label>
             <input formControlName="cep" class="primary-form-input" type="text" placeholder="99999-999">
         </div>
-        <div class="col-span-4">
+        <div class="col-span-4" *ngIf="update">
             <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="endereco">
               Endereço
             </label>
@@ -86,6 +86,18 @@
             </label>
             <input formControlName="cel" class="primary-form-input" type="text" placeholder="99999-999">
         </div>
+        <div class="col-span-2" *ngIf="create">
+          <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="bloco">
+            Bloco
+          </label>
+          <input formControlName="bloco" class="primary-form-input" type="text" placeholder="99999-999">
+      </div>
+      <div class="col-span-2" *ngIf="create">
+        <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="apartamento">
+          Apartamento
+        </label>
+        <input formControlName="apartamento" class="primary-form-input" type="text" placeholder="99999-999">
+    </div>
         <div class="col-span-8 mt-3 flex">
             <button class="button me-2" [ngClass]="{'primary-button': update, 'success-button': !update}" type="submit"><fa-icon [icon]="faFloppyDisk" class="me-2 "></fa-icon>{{ update ? 'Atualizar' : 'Salvar' }}</button>
             <button class="button secondary-button" type="button" (click)="fecharCadastro()"><fa-icon [icon]="faXmark" class="me-2"></fa-icon>Fechar</button>

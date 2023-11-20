@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { IconDefinition, faFloppyDisk, faXmark, faPenToSquare, faTrash, faEraser, faSearch, faAdd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { iPerson } from 'src/app/pages/interfaces/Iperson';
-import { dataPersons } from 'src/app/pages/mock/mock-data';
+import { dataMoradores, dataPersons } from 'src/app/pages/mock/mock-data';
 import Pagination from 'src/app/util/pagination';
 
 @Component({
@@ -30,8 +30,8 @@ export default class MoradorComponent implements OnInit {
   create: boolean = false;
   filtro: boolean = true;
 
-  paginationPerson: Pagination<iPerson> = new Pagination<iPerson>(5, dataPersons);
-  personList:iPerson[] = dataPersons;
+  paginationPerson: Pagination<iPerson> = new Pagination<iPerson>(5, dataMoradores);
+  personList:iPerson[] = dataMoradores;
 
   constructor(
     private fb: FormBuilder
@@ -57,14 +57,17 @@ export default class MoradorComponent implements OnInit {
       endereco: [person?.endereco ? person.endereco : '' , Validators.required],
       tel: person?.tel ? person.tel : '',
       cel: [person?.cel ? person.cel : '' , Validators.required],
-      email: [person?.email ? person.email : '' , Validators.required]
+      email: [person?.email ? person.email : '' , Validators.required],
+      bloco: [person?.bloco ? person.bloco : '' , Validators.required],
+      apartamento: [person?.apartamento ? person.apartamento : '' , Validators.required]
     });
   }
 
   createFormFiltro(){
     this.formFiltro = this.fb.group({
       nome: ['' ],
-      endereco: [''],
+      bloco: [''],
+      apartamento: [''],
       email: ['']
     })
   }

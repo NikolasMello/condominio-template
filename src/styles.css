@@ -66,6 +66,12 @@
         @apply  bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2
                 focus-visible:outline-offset-2 focus-visible:outline-cyan-600;
     }
+
+    .danger-button{
+        @apply  bg-rose-600 text-white shadow-sm hover:bg-rose-700 focus-visible:outline focus-visible:outline-2
+                focus-visible:outline-offset-2 focus-visible:outline-rose-600;
+    }
+
     .primary-icon-button{
         @apply text-cyan-600 hover:text-cyan-700 rounded-sm hover:bg-slate-100 px-3 py-2;
     }
@@ -83,6 +89,12 @@
     }
     .pagination-next{
         @apply disabled:text-slate-400 py-1 px-3 rounded-r-md disabled:hover:bg-white hover:bg-cyan-700 hover:text-white;
+    }
+    .chat-item{
+        @apply flex justify-start items-center h-24 min-w-full px-3 py-2 hover:bg-slate-100 hover:cursor-pointer rounded-lg mb-1;
+    }
+    .chat-item.active{
+        @apply flex justify-start items-center h-24 min-w-full px-3 py-2 hover:bg-slate-100 hover:cursor-pointer rounded-lg mb-1 bg-slate-200;
     }
     
 
