@@ -33,8 +33,8 @@ export default class ApartamentoComponent implements OnInit {
     { id:1, bloco: 'A', apartamento: '6', status: 'Morada', proprietario: 'Luiz Sérgio', morador: 'Luiz Sérgio', preco: 'R$ 220.000,00'},
     { id:2, bloco: 'A', apartamento: '5', status: 'Alugado', proprietario: 'Carlos Correia', morador: 'Julia Santos', preco: 'R$ 240.000,00'},
     { id:3, bloco: 'A', apartamento: '4', status: 'Morada', proprietario: 'Ana Lúcia', morador: 'Ana Lúcia', preco: 'R$ 210.000,00'},
-    { id:4, bloco: 'A', apartamento: '3', status: 'Alugado', proprietario: ' -- ', morador: 'Luiz Sérgio', preco: 'R$ 220.000,00'},
-    { id:5, bloco: 'A', apartamento: '2', status: 'Disponível', proprietario: 'Luiz Sérgio', morador: 'Vazio', preco: 'R$ 240.000,00'},
+    { id:4, bloco: 'A', apartamento: '3', status: 'Alugado', proprietario: 'Luiz Sérgio', morador: 'Luana Souza', preco: 'R$ 220.000,00'},
+    { id:5, bloco: 'A', apartamento: '2', status: 'Disponível', proprietario: ' -- ', morador: 'Vazio', preco: 'R$ 240.000,00'},
     { id:6, bloco: 'A', apartamento: '1', status: 'Disponível', proprietario: ' -- ', morador: 'Vazio', preco: 'R$ 220.000,00'},
   ]
 

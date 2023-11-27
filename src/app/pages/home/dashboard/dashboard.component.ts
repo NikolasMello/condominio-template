@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { ChartDB } from 'src/app/mock/chartData';
 
 import {
   ChartComponent,
