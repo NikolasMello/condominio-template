@@ -1,0 +1,9 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .link-text{
+        @apply font-semibold text-cyan-600 hover:text-cyan-500;
+    }
+}
+

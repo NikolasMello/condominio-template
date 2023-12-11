@@ -1,0 +1,43 @@
+<div class="shadow-lg bg-white w-full h-full rounded-md py-4 px-6">
+    <h5>Ações de visitantes</h5>
+    <form [formGroup]="form" class="grid grid-cols-12 gap-4" (ngSubmit)="cadastrar()">
+        <hr class="col-span-12 mb-2"/>
+        <div class="col-span-4">
+          <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="nome">
+            Perfil
+          </label>
+          <input formControlName="nome" class="primary-form-input" type="text" placeholder="Digite o perfil a ser adicionado">
+        </div>
+        <div class="col-span-12 mt-3 flex">
+            <button class="button success-button me-2" type="submit"><fa-icon [icon]="faAdd" class="me-2 "></fa-icon>Adicionar ação</button>
+            <button class="tertiary-button button" type="button" (click)="limpar()"><fa-icon [icon]="faEraser" class="me-2 "></fa-icon>Limpar</button> 
+      </div>
+      <hr class="col-span-12 my-2"/>
+    </form>
+    <div class="w-full">
+        <div class="relative rounded-xl overflow-auto">
+          <div class="overflow-hidden my-8">
+            <table class="border-collapse table-auto w-full text-sm">
+              <thead>
+                <tr class="text-gray-900 [&>*:last-child]:text-center bg-slate-100">
+                  <th class="border-b border-slate-400 font-bold p-4 pl-8 pt-3 pb-3 text-left">Ação</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pt-3 pb-3 text-left">Data de inclusão</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-3 pb-3 text-left">Ações</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white">
+                <tr class="text-slate-600 [&>*:last-child]:text-center" *ngFor="let pefil of perfis">
+                  <td class="border-b border-slate-300 p-4 pl-8">{{ pefil.nome }}</td>
+                  <td class="border-b border-slate-300 p-4 truncate">{{ pefil.dataInclusao }}</td>
+                  <td class="border-b border-slate-300 p-4">
+                    <button><fa-icon [icon]="faTrash" class="danger-icon-button"></fa-icon></button>
+                  </td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</div>
+

@@ -1,0 +1,69 @@
+<div class="shadow-lg bg-white w-full h-full rounded-md py-4 px-6">
+    <h5>Auditoria de visitantes</h5>
+    <form [formGroup]="formFiltro" class="grid grid-cols-12 gap-4" (ngSubmit)="pesquisar()" *ngIf="filtro">
+        <hr class="col-span-12 mb-2"/>
+        <div class="col-span-4">
+          <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="nome">
+            Nome
+          </label>
+          <input formControlName="nome" class="primary-form-input" type="text" placeholder="Nome do visitante">
+        </div>
+        <div class="col-span-4">
+          <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="endereco">
+            Endereço
+          </label>
+          <input formControlName="endereco" class="primary-form-input" type="text" placeholder="Endereço do morador">
+        </div>
+        <div class="col-span-3">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="endereco">
+                Ação
+            </label>
+            <select class="primary-form-input">
+                <option>Mostrar todas</option>
+                <option>Visita</option>
+                <option>Entrega - Produto</option>
+                <option>Entrega - Ifood</option>
+              </select>
+          </div>
+        <div class="col-span-12 mt-3 flex">
+            <button class="primary-button button me-2" type="submit"><fa-icon [icon]="faSearch" class="me-2 "></fa-icon>Pesquisar</button>
+            <button class="tertiary-button button me-2" type="button" (click)="limpar()"><fa-icon [icon]="faEraser" class="me-2 "></fa-icon>Limpar</button>
+      </div>
+      <hr class="col-span-12 my-2"/>
+      </form>
+      <div class="w-full">
+        <div class="relative rounded-xl overflow-auto">
+          <div class="overflow-hidden my-8 min-h-[298px]">
+            <table class="border-collapse table-auto w-full text-sm">
+              <thead>
+                <tr class="text-gray-900">
+                  <th class="border-b border-slate-400 font-bold p-4 pl-8 pt-0 pb-3 text-left">Nome</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pl-8 pt-0 pb-3 text-left">Endereço de destino</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Portaria</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Autorizado por</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Ação do visitante</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white">
+                <tr class="text-slate-600" *ngFor="let person of paginationPerson.page">
+                  <td class="border-b border-slate-300 p-4 pl-8">{{ person?.nome }}</td>
+                  <td class="border-b border-slate-300 p-4 pl-8">{{ person?.endereco }}</td>
+                  <td class="border-b border-slate-300 p-4">{{ person?.portaria }}</td>
+                  <td class="border-b border-slate-300 p-4">{{ person?.autorizado }}</td>
+                  <td class="border-b border-slate-300 p-4">{{ person?.acao }}</td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+            <div class="flex justify-center mt-6 text-slate-600 w-full">
+              <div class="w-fit border border-cyan-600/40 rounded-md">
+                <button [disabled]="paginationPerson.currentPage === 1" class="pagination-prev">Anterior</button>
+                <button [disabled]="pages === '...'" class="pagination-button" [ngClass]="{'active': pages === paginationPerson.currentPage }" *ngFor="let pages of paginationPerson.pageButtons" (click)="getPage(pages)">{{ pages }}</button>
+                <button [disabled]="paginationPerson.currentPage === paginationPerson.totalPages" class="pagination-next">Proximo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+

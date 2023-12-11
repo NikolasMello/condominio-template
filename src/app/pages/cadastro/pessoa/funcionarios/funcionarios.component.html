@@ -1,0 +1,97 @@
+<div class="shadow-lg bg-white w-full h-full rounded-md py-4 px-6">
+    <h5 class="mb-4">Funcionários</h5>
+    <form [formGroup]="formFiltro" class="grid grid-cols-12 gap-4" (ngSubmit)="pesquisar()" *ngIf="filtro">
+      <hr class="col-span-12 mb-2"/>
+      <div class="col-span-4">
+        <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="nome">
+          Nome
+        </label>
+        <input formControlName="nome" class="primary-form-input" type="text" placeholder="Nome do funcionário">
+      </div>
+      <div class="col-span-4">
+        <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="endereco">
+          Endereço
+        </label>
+        <input formControlName="endereco" class="primary-form-input" type="text" placeholder="Endereço do funcionário">
+      </div>
+      <div class="col-span-8 mt-3 flex">
+        <button class="tertiary-button button me-2" type="button" (click)="limpar()"><fa-icon [icon]="faEraser" class="me-2 "></fa-icon>Limpar</button>
+        <button class="primary-button button me-2" type="submit"><fa-icon [icon]="faSearch" class="me-2 "></fa-icon>Pesquisar</button>
+        <button class="button success-button" type="button" (click)="cadastrar()"><fa-icon [icon]="faAdd" class="me-2 "></fa-icon>Cadastrar</button>
+    </div>
+    <hr class="col-span-12 my-2"/>
+    </form>
+    <form [formGroup]="formCadastroMorador" class="grid grid-cols-8 gap-4" (ngSubmit)="salvar()" *ngIf="create || update">
+        <div class="col-span-8">
+            <hr class="mb-2"/>
+            <h6 class="mb-0">{{ update ? 'Editar' : 'Cadastrar' }}</h6>
+        </div>
+        <div class="col-span-4">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="nome">
+              Nome
+            </label>
+            <input formControlName="nome" class="primary-form-input" type="text" placeholder="Nome do funcionário">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="rg">
+              R.G.
+            </label>
+            <input formControlName="rg" class="primary-form-input" type="text" placeholder="99.999.999-9">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="cel">
+              Celular
+            </label>
+            <input formControlName="cel" class="primary-form-input" type="text" placeholder="99999-999">
+        </div>
+        <div class="col-span-4">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="endereco">
+              Endereço
+            </label>
+            <input formControlName="endereco" class="primary-form-input" type="text" placeholder="Digite o endereço">
+        </div>
+        <div class="col-span-8 mt-3 flex">
+            <button class="button me-2" [ngClass]="{'primary-button': update, 'success-button': !update}" type="submit"><fa-icon [icon]="faFloppyDisk" class="me-2 "></fa-icon>{{ update ? 'Atualizar' : 'Salvar' }}</button>
+            <button class="button secondary-button" type="button" (click)="fecharCadastro()"><fa-icon [icon]="faXmark" class="me-2"></fa-icon>Fechar</button>
+        </div>
+        <hr class="col-span-8 my-2"/>
+    </form>
+    <div class="w-full">
+      <div class="relative rounded-xl overflow-auto">
+        <div class="overflow-hidden my-8">
+          <table class="border-collapse table-auto w-full text-sm min-h-[298px]">
+            <thead>
+              <tr class="text-gray-900 [&>*:last-child]:text-center">
+                <th class="border-b border-slate-400 font-bold p-4 pl-8 pt-0 pb-3 text-left">Nome</th>
+                <th class="border-b border-slate-400 font-bold p-4 pt-0 pb-3 text-left">Endereço</th>
+                <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Celular</th>
+                <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">R.G.</th>
+                <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Ações</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr class="text-slate-600 [&>*:last-child]:text-center" *ngFor="let person of paginationPerson.page">
+                <td class="border-b border-slate-300 p-4 pl-8">{{ person?.nome }}</td>
+                <td class="border-b border-slate-300 p-4 truncate">{{ person?.endereco }}</td>
+                <td class="border-b border-slate-300 p-4">{{ person?.cel }}</td>
+                <td class="border-b border-slate-300 p-4">{{ person?.rg }}</td>
+                <td class="border-b border-slate-300 p-4">
+                  <button (click)="editar(person)"><fa-icon [icon]="faPenToSquare" class="me-1 primary-icon-button"></fa-icon></button>
+                  <button><fa-icon [icon]="faTrash" class="danger-icon-button"></fa-icon></button>
+                </td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+          <div class="flex justify-center mt-6 text-slate-600 w-full">
+            <div class="w-fit border border-cyan-600/40 rounded-md">
+              <button [disabled]="paginationPerson.currentPage === 1" class="pagination-prev">Anterior</button>
+              <button [disabled]="pages === '...'" class="pagination-button" [ngClass]="{'active': pages === paginationPerson.currentPage }" *ngFor="let pages of paginationPerson.pageButtons" (click)="getPage(pages)">{{ pages }}</button>
+              <button [disabled]="paginationPerson.currentPage === paginationPerson.totalPages" class="pagination-next">Proximo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+

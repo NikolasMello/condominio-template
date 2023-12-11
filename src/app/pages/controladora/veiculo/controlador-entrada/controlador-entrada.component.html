@@ -1,0 +1,60 @@
+<div class="shadow-lg bg-white w-full h-full rounded-md py-4 px-6">
+    <h5>Controlador de entrada do veículo</h5>
+    <form  class="grid grid-cols-12 gap-4">
+        <hr class="col-span-12 mb-2"/>
+            <div class="col-span-4">
+                <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="block">
+                Nome do proprietário
+                </label>
+                <input formControlName="block" class="primary-form-input" type="text" placeholder="Nome do proprietário">
+            </div>
+            <div class="col-span-4">
+                <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="block">
+                Tipo
+                </label>
+                <input formControlName="block" class="primary-form-input" type="text" placeholder="Tipo do veículo">
+            </div>
+            <div class="col-span-4">
+                <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="block">
+                Data
+                </label>
+                <input formControlName="block" class="primary-form-input" type='date' placeholder="Nome do morador">
+            </div>
+            <div class="col-span-12 mt-3 flex">
+                <button class="primary-button button me-2" type="button"><fa-icon [icon]="faSearch" class="me-2 "></fa-icon>Pesquisar</button>
+                <button class="tertiary-button button me-2" type="button" ><fa-icon [icon]="faEraser" class="me-2 "></fa-icon>Limpar</button>
+            </div>
+            <hr class="col-span-12 mb-2"/>
+    </form>
+    <div class="w-full">
+        <div class="relative rounded-xl overflow-auto">
+          <div class="overflow-hidden my-8">
+            <table class="border-collapse table-auto w-full text-sm">
+              <thead>
+                <tr class="text-gray-900 bg-slate-100">
+                  <th class="border-b border-slate-400 font-bold p-4 pl-8 pt-3 pb-3 text-left">Veículo</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pt-3 pb-3 text-left">Placa</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-3 pb-3 text-left">Data</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-3 pb-3 text-left">Proprietário</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white">
+                <!-- <tr class="text-slate-600 [&>*:last-child]:text-center">
+                  <td class="border-b border-slate-300 p-4 pl-8"></td>
+                  <td class="border-b border-slate-300 p-4 truncate"></td>
+                  <td class="border-b border-slate-300 p-4 pr-8"></td>
+                  <td class="border-b border-slate-300 p-4"></td>
+                  <td class="border-b border-slate-300 p-4"></td>
+                  <td class="border-b border-slate-300 p-4">
+                    <button><fa-icon [icon]="faPenToSquare" class="me-1 primary-icon-button"></fa-icon></button>
+                    <button><fa-icon [icon]="faTrash" class="danger-icon-button"></fa-icon></button>
+                  </td>
+                </tr> -->
+                <tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</div>
+

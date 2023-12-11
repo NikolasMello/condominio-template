@@ -1,0 +1,72 @@
+<div class="shadow-lg bg-white w-full h-full rounded-md py-4 px-6">
+    <h5>Apartamento</h5>
+    <form [formGroup]="formFiltro" class="grid grid-cols-12 gap-4" (ngSubmit)="pesquisar()" *ngIf="filtro">
+        <hr class="col-span-12 mb-2"/>
+        <div class="col-span-2">
+          <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="bloco">
+            Bloco
+          </label>
+          <input formControlName="bloco" class="primary-form-input" type="text" placeholder="Bloco">
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="status">
+              Status
+            </label>
+            <select class="primary-form-input" formControlName="status">
+                <option>Morada</option>
+                <option>Alugado</option>
+                <option>Disponível</option>
+            </select>
+        </div>
+        <div class="col-span-2">
+            <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="proprietario">
+              Proprietário
+            </label>
+            <input formControlName="proprietario" class="primary-form-input" type="text" placeholder="Endereço do morador">
+        </div>
+        <div class="col-span-12 mt-3 flex">
+          <button class="primary-button button me-2" type="submit"><fa-icon [icon]="faSearch" class="me-2 "></fa-icon>Pesquisar</button>
+          <button class="tertiary-button button me-2" type="button" (click)="limpar()"><fa-icon [icon]="faEraser" class="me-2 "></fa-icon>Limpar</button>
+          <button class="button success-button me-2" type="button" (click)="cadastrar()"><fa-icon [icon]="faFileExcel" class="me-2 "></fa-icon>Relatório</button>
+          <button class="button danger-button" type="button" (click)="cadastrar()"><fa-icon [icon]="faFilePdf" class="me-2 "></fa-icon>Relatório PDF</button>
+      </div>
+      <hr class="col-span-12 my-2"/>
+      </form>
+      <div class="w-full">
+        <div class="relative rounded-xl overflow-auto">
+          <div class="overflow-hidden my-8">
+            <table class="border-collapse table-auto w-full text-sm min-h-[298px]">
+              <thead>
+                <tr class="text-gray-900">
+                  <th class="border-b border-slate-400 font-bold p-4 pl-8 pt-0 pb-3 text-left">Bloco</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pt-0 pb-3 text-left">Apartamento</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Status</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Proprietário</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Morador</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-0 pb-3 text-left">Preço</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white">
+                <tr class="text-slate-600 " *ngFor="let ap of paginationApartment.page">
+                  <td class="border-b border-slate-300 p-4 pl-8">{{ ap?.bloco }}</td>
+                  <td class="border-b border-slate-300 p-4 truncate">{{ ap?.apartamento }}</td>
+                  <td class="border-b border-slate-300 p-4 pr-8">{{ ap?.status }}</td>
+                  <td class="border-b border-slate-300 p-4">{{ ap?.proprietario }}</td>
+                  <td class="border-b border-slate-300 p-4">{{ ap?.morador }}</td>
+                  <td class="border-b border-slate-300 p-4">{{ ap?.preco }}</td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+            <div class="flex justify-center mt-6 text-slate-600 w-full">
+              <div class="w-fit border border-cyan-600/40 rounded-md">
+                <button [disabled]="paginationApartment.currentPage === 1" class="pagination-prev">Anterior</button>
+                <button [disabled]="pages === '...'" class="pagination-button" [ngClass]="{'active': pages === paginationApartment.currentPage }" *ngFor="let pages of paginationApartment.pageButtons" (click)="getPage(pages)">{{ pages }}</button>
+                <button [disabled]="paginationApartment.currentPage === paginationApartment.totalPages" class="pagination-next">Proximo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+

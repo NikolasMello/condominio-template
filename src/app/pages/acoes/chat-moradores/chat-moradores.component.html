@@ -1,0 +1,74 @@
+<div class="shadow-lg bg-white w-full h-full rounded-md py-4 px-6">
+    <h5>Chat moradores</h5>
+    <form [formGroup]="formFiltro" class="grid grid-cols-12 gap-4" (ngSubmit)="pesquisar()" *ngIf="filtro">
+        <hr class="col-span-12 mb-2"/>
+        <div class="col-span-4">
+          <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="nome">
+            Nome
+          </label>
+          <input formControlName="nome" class="primary-form-input" type="text" placeholder="Nome do morador">
+        </div>
+        <div class="col-span-2">
+          <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="bloco">
+            Bloco
+          </label>
+          <input formControlName="bloco" class="primary-form-input" type="text" placeholder="Endereço do morador">
+        </div>
+        <div class="col-span-2">
+          <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="apartamento">
+            Apartamento
+          </label>
+          <input formControlName="apartamento" class="primary-form-input" type="text" placeholder="Endereço do morador">
+        </div>
+        <div class="col-span-8 mt-3 flex">
+            <button class="primary-button button me-2" type="submit"><fa-icon [icon]="faSearch" class="me-2 "></fa-icon>Pesquisar</button>
+            <button class="tertiary-button button me-2" type="button" (click)="limpar()"><fa-icon [icon]="faEraser" class="me-2 "></fa-icon>Limpar</button>
+      </div>
+      <hr class="col-span-12 my-2"/>
+      </form>
+      <div class="grid grid-cols-12 gap-4" >
+        <div class="col-span-3 py-3">
+            <div class="h-[560px] overflow-auto pe-2">
+                <div [ngClass]="{'active': verifyId(person.id), '': !verifyId(person.id)}" class="chat-item" *ngFor="let person of personList" (click)="setActiveChat(person.id)">
+                    <div class="rounded-full bg-cyan-800 h-14 w-14">
+                    </div>
+                    <div class="ps-4">
+                        <span class="text-gray-900 block font-bold">{{ person?.nome }}</span>
+                        <span class="block text-sm">{{ person?.endereco }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-9 py-3 px-2">
+            <p class="bg-cyan-600 py-2 px-3 rounded-t-lg text-white">{{ personList[activeid].nome }} | {{ personList[activeid].endereco }} </p>
+            <div class="w-full bg-slate-200 h-[460px] overflow-y-auto p-3">
+                <div class="w-full" *ngFor="let chatItem of chat">
+                    <div class="flex mb-2 p-2 justify-end items-center" *ngIf="chatItem.operador">
+                        <div class="bg-cyan-800 rounded-lg px-3 py-2">
+                            <p class="text-white">{{ chatItem.text }}</p>
+                            <p class="text-xs text-white mt-1 text-right font-light">{{ chatItem.time }}</p>
+                        </div>
+                        <div class="ms-2 h-10 w-10 rounded-full bg-cyan-700 overflow-hidden">
+                            <img src="../../../../assets/images/default-user.png" height="100%" width="100%" />
+                        </div>
+                    </div>
+                    <div class="flex mb-2 p-2 items-center" *ngIf="!chatItem.operador">
+                        <div class="me-2 h-10 w-10 rounded-full bg-cyan-700 overflow-hidden">
+                            <img src="../../../../assets/images/default-user.png" />
+                        </div>
+                        <div class="bg-cyan-500 rounded-lg px-3 py-2">
+                            <p class="text-white">{{ chatItem.text }}</p>
+                            <p class="text-xs text-white mt-1 font-light">{{ chatItem.time }}</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="w-full mt-3 flex">
+                <input formControlName="nome" class="primary-form-input rounded-r-none" type="text" placeholder="Digite sua mensagem...">
+                <button class="button primary-button rounded-l-none"><fa-icon [icon]="faPaperPlane"></fa-icon></button>
+            </div>
+        </div>
+      </div>
+</div>

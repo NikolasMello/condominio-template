@@ -1,0 +1,70 @@
+<div class="shadow-lg bg-white w-full h-full rounded-md py-4 px-6">
+    <h5>Controle de saídas</h5>
+    <form  class="grid grid-cols-12 gap-4">
+        <hr class="col-span-12 mb-2"/>
+            <div class="col-span-3">
+                <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="block">
+                  Bloco
+                </label>
+                <input formControlName="block" class="primary-form-input" type="text" placeholder="Número do bloco">
+            </div>
+            <div class="col-span-3">
+                <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="apartment">
+                  Apartamento
+                </label>
+                <input formControlName="apartment" class="primary-form-input" type="text" placeholder="Número do apartamento">
+            </div>
+            <div class="col-span-3">
+                <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="block">
+                  De
+                </label>
+                <input formControlName="block" class="primary-form-input" type='date' placeholder="Nome do morador">
+            </div>
+            <div class="col-span-3">
+                <label class="block text-sm font-medium leading-6 text-gray-900 mb-1" for="block">
+                  Até
+                </label>
+                <input formControlName="block" class="primary-form-input" type='date' placeholder="Nome do morador">
+            </div>
+            <div class="col-span-12 mt-3 flex">
+                <button class="primary-button button me-2" type="submit"><fa-icon [icon]="faSearch" class="me-2 "></fa-icon>Pesquisar</button>
+                <button class="tertiary-button button me-2" type="button"><fa-icon [icon]="faEraser" class="me-2 "></fa-icon>Limpar</button>
+                <button class="button success-button me-2" type="button"><fa-icon [icon]="faFileExcel" class="me-2 "></fa-icon>Relatório</button>
+                <button class="button danger-button" type="button"><fa-icon [icon]="faFilePdf" class="me-2 "></fa-icon>Relatório PDF</button>
+            </div>
+            <hr class="col-span-12 mb-2"/>
+    </form>
+    <div class="w-full">
+        <div class="relative rounded-xl overflow-auto">
+          <div class="overflow-hidden my-8">
+            <table class="border-collapse table-auto w-full text-sm min-h-[298px]">
+              <thead>
+                <tr class="text-gray-900 bg-slate-100">
+                  <th class="border-b border-slate-400 font-bold p-4 pl-8 pt-3 pb-3 text-left">Nome</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pt-3 pb-3 text-left">Endereço de destino</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-3 pb-3 text-left">Data e hora</th>
+                  <th class="border-b border-slate-400 font-bold p-4 pr-8 pt-3 pb-3 text-left">Contato</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white">
+                <tr class="text-slate-600" *ngFor="let person of paginationPerson.page">
+                  <td class="border-b border-slate-300 p-4 pl-8">{{ person?.nome }}</td>
+                  <td class="border-b border-slate-300 p-4 truncate">{{ person?.endereco }}</td>
+                  <td class="border-b border-slate-300 p-4 pr-8">{{ person?.dataNascimento }}</td>
+                  <td class="border-b border-slate-300 p-4">{{ person?.cel }}</td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+            <div class="flex justify-center mt-6 text-slate-600 w-full">
+              <div class="w-fit border border-cyan-600/40 rounded-md">
+                <button [disabled]="paginationPerson.currentPage === 1" class="pagination-prev">Anterior</button>
+                <button [disabled]="pages === '...'" class="pagination-button" [ngClass]="{'active': pages === paginationPerson.currentPage }" *ngFor="let pages of paginationPerson.pageButtons" (click)="getPage(pages)">{{ pages }}</button>
+                <button [disabled]="paginationPerson.currentPage === paginationPerson.totalPages" class="pagination-next">Proximo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
